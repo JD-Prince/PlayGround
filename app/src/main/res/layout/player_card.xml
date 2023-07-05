@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<androidx.cardview.widget.CardView
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/player_detail_card"
+    android:layout_width="match_parent"
+    android:layout_marginStart="8dp"
+    android:layout_marginEnd="8dp"
+    android:layout_height="56dp"
+    android:layout_marginTop="2dp"
+    android:layout_marginBottom="2dp"
+    app:cardElevation="2dp"
+    app:layout_constraintTop_toBottomOf="@id/description_card"
+    app:layout_constraintStart_toStartOf="parent"
+    app:cardCornerRadius="7dp"
+    app:layout_constraintEnd_toEndOf="parent"
+    >
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingStart="16dp"
+        android:paddingTop="8dp"
+        android:paddingBottom="8dp"
+
+        >
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/profile_pic"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/ic_profile"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"/>
+
+        <TextView
+            android:id="@+id/name"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:text="Username - userID"
+            android:textColor="@color/material_dynamic_neutral50"
+            android:textSize="18sp"
+            android:maxLines="1"
+            android:ellipsize="end"
+            app:layout_constraintBottom_toTopOf="@+id/host_marker"
+            app:layout_constraintStart_toEndOf="@id/profile_pic"
+            app:layout_constraintTop_toTopOf="@id/profile_pic" />
+
+        <TextView
+            android:id="@+id/points"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="10 pt"
+            android:textColor="@color/material_dynamic_neutral50"
+            android:textSize="18sp"
+            android:layout_marginEnd="24dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/close_ic"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/host_marker"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingStart="5dp"
+            android:paddingTop="1dp"
+            android:paddingEnd="5dp"
+            android:paddingBottom="1dp"
+            android:text="@string/host"
+            android:textColor="@color/brightblue"
+            android:textSize="12sp"
+            android:textStyle="italic|bold"
+            app:layout_constraintBottom_toBottomOf="@+id/profile_pic"
+            app:layout_constraintTop_toBottomOf="@+id/name"
+            app:layout_constraintStart_toStartOf="@id/name"
+            tools:layout_editor_absoluteX="49dp" />
+
+        <ImageButton
+            android:id="@+id/close_ic"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:background="@color/newBg"
+            android:src="@drawable/close_ic"
+            android:visibility="gone"
+            android:layout_marginTop="2dp"
+            android:layout_marginEnd="20dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@id/points"
+            app:layout_constraintBottom_toBottomOf="@id/points"
+            app:tint="@color/material_dynamic_neutral50"
+            />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.cardview.widget.CardView>

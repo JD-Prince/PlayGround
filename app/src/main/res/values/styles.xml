@@ -1,0 +1,14 @@
+<resources>
+
+    <style name="Widget.Theme.PlayGround.ButtonBar.Fullscreen" parent="">
+        <item name="android:background">@color/black_overlay</item>
+        <item name="android:buttonBarStyle">?android:attr/buttonBarStyle</item>
+    </style>
+    <style name="MyEditTextBackground" parent="@style/Widget.MaterialComponents.TextInputLayout.FilledBox">
+        <item name="boxBackgroundColor">@color/white_variant</item>
+    </style>
+    <style name="CustomCursor">
+        <item name="android:textCursorDrawable">@drawable/cursor</item>
+    </style>
+
+</resources>

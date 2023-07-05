@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/home_ic"
+        android:title="@string/feeds"
+
+        android:icon="@drawable/feeds_ic"/>
+    <item
+        android:id="@+id/my_ground_ic"
+        android:title="My Ground"
+        android:icon="@drawable/my_ground_ic"/>
+    <item
+        android:id="@+id/profile_ic"
+        android:title="@string/profile"
+        android:icon="@drawable/ic_profile"/>
+</menu>

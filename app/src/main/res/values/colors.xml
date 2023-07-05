@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="white_variant">#F4F6Fc</color>
+    <color name="brightblue">#0096FF</color>
+    <color name="DarkBlue">#0000FF</color>
+    <color name="skyblue">#87CEEB</color>
+    <color name="electricblue">#7DF9FF</color>
+    <color name="azure">#007FFF</color>
+    <color name="bg">#8DC0E0F4</color>
+    <color name="newBg">#00FFFFFF</color>
+    <color name="light_blue_600">#FF039BE5</color>
+    <color name="light_blue_900">#FF01579B</color>
+    <color name="light_blue_A200">#FF40C4FF</color>
+    <color name="light_blue_A400">#FF00B0FF</color>
+    <color name="black_overlay">#66000000</color>
+    <color name="red">#92E53935</color>
+    <color name="GamecardBg">#1D0096FF</color>
+    <color name="aliceBlue">#F0F8FF</color>
+</resources>
