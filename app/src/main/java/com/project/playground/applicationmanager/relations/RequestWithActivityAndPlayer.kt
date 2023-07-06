@@ -14,11 +14,13 @@ data class RequestWithActivityAndPlayer(
         parentColumn = "activityId",
         entityColumn = "eventId"
     )
+
     val activity : SportActivity,
 
     @Relation(
         parentColumn = "senderId",
         entityColumn = "playerId"
     )
+
     val player: Player
 )
