@@ -7,19 +7,17 @@ import android.graphics.BitmapFactory
 import android.net.Uri
 import android.os.Bundle
 import android.provider.MediaStore
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.activity.result.contract.ActivityResultContracts
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
-import com.project.playground.R
 import com.project.playground.databinding.FragmentEditActivityBinding
 import com.project.playground.model.SportActivity
 import java.io.ByteArrayOutputStream
 import kotlin.math.pow
 
-class EditActivityFragment(private val gameHandler : GameHandler) : BottomSheetDialogFragment() {
+class EditActivityFragment(private val gameHandler: GameHandler, private val enrolledPlayers: Int) : BottomSheetDialogFragment() {
 
     private var _binding : FragmentEditActivityBinding?=null
     private val binding : FragmentEditActivityBinding
@@ -83,8 +81,8 @@ class EditActivityFragment(private val gameHandler : GameHandler) : BottomSheetD
                     requiredplayers= requiredPlayers.editText?.text.toString().toInt()
 
                     if(requiredplayers > 1000) throw NumberFormatException()
-                    if(requiredplayers < currentEvent.requiredPlayers){
-                        requiredPlayers.editText?.error = "The value cannot be lesser than inital value (initial value ${currentEvent.requiredPlayers})"
+                    if(requiredplayers < enrolledPlayers){
+                        requiredPlayers.editText?.error = "Unable to proceed with the count, $enrolledPlayers players has already enrolled. Please try with $enrolledPlayers or more"
                         return@setOnClickListener
                     }
                 }catch (e : NumberFormatException){

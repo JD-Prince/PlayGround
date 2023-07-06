@@ -6,6 +6,7 @@ import com.project.playground.model.SportActivity
 import com.project.playground.applicationmanager.CurrentUserHandler
 import com.project.playground.applicationmanager.EventRepo
 import com.project.playground.applicationmanager.database.dao.ActivityDao
+import com.project.playground.applicationmanager.database.dao.RegistrationDao
 import com.project.playground.applicationmanager.database.dao.UserDao
 
 class ActivityRepository(private val activityDao: ActivityDao, private val userHandler: CurrentUserHandler, private val userDao: UserDao) : EventRepo{

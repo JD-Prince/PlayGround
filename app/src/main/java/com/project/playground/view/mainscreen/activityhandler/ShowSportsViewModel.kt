@@ -82,6 +82,7 @@ class ShowSportsViewModel(private val eventRepo : EventRepo,private val hostProv
     fun updateGame(game: SportActivity) {
         viewModelScope.launch {
             eventRepo.updateGame(game)
+            if(game.requiredPlayers==game.enrolledPlayers)registrationRepo.removePendingRegistration(game)
         }
     }
 

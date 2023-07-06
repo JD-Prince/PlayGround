@@ -79,15 +79,7 @@ class RegistrationRepository(private val userHandler : CurrentUserHandler, priva
             )
 
             if(event.enrolledPlayers==event.requiredPlayers){
-                val pendingRequestList = registrationDao.getAllRequestForTheEvent(event.eventId)
-                println("event_id $pendingRequestList --> $event")
-                registrationDao.removeAllRequestForTheGame(event.eventId)
-                registrationDao.removeAllPendingRegistration(event.eventId)
-                pendingRequestList.forEach { request ->
-                    registrationDao.addNotice(Notification.Notice(request.senderId,request.activityId,NoticeTypes.EVENT_FILLED,event.title))
-                }
-
-
+                removePendingRegistration(event)
             }
         }
     }
@@ -134,5 +126,16 @@ class RegistrationRepository(private val userHandler : CurrentUserHandler, priva
         }
 
         throw IllegalArgumentException("Current User Value is Null")
+    }
+
+    suspend fun removePendingRegistration(event: SportActivity) {
+        val pendingRequestList = registrationDao.getAllRequestForTheEvent(event.eventId)
+        println("event_id $pendingRequestList --> $event")
+        registrationDao.removeAllRequestForTheGame(event.eventId)
+        registrationDao.removeAllPendingRegistration(event.eventId)
+        pendingRequestList.forEach { request ->
+            registrationDao.addNotice(Notification.Notice(request.senderId,request.activityId,NoticeTypes.EVENT_FILLED,event.title))
+        }
+
     }
 }

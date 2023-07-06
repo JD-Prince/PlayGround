@@ -23,12 +23,15 @@
     android:id="@+id/usernamae_layout"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
+    app:counterEnabled="true"
+    app:counterMaxLength="30"
     app:layout_constraintTop_toBottomOf="@id/signup_title"
     app:layout_constraintStart_toStartOf="@id/signup_title"
     style="@style/MyEditTextBackground">
     <com.google.android.material.textfield.TextInputEditText
         android:id="@+id/username_for_signup"
         android:layout_marginTop="20dp"
+        android:maxLength="30"
         android:layout_width="250dp"
         android:layout_height="wrap_content"
         android:inputType="textPersonName"

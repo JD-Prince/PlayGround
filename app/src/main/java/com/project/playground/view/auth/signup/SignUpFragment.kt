@@ -51,7 +51,6 @@ class SignUpFragment() : Fragment() {
         })
         viewModel.successfulRegistration.observe(viewLifecycleOwner, Observer {isRegistered->
             if(isRegistered){
-            Toast.makeText(this.context,"User Registered Successfully",Toast.LENGTH_SHORT).show()
 
             startActivity(Intent(requireContext(),HomeMainActivity :: class.java))
                 requireActivity().finish()

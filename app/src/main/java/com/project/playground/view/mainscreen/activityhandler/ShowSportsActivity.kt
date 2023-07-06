@@ -6,7 +6,6 @@ import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
-import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.core.content.ContextCompat
 import androidx.lifecycle.Observer
@@ -40,7 +39,6 @@ class ShowSportsActivity : AppCompatActivity() {
 
         _binding = ActivityShowSportActivityBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        setSupportActionBar(binding.activityToolbar.activityToolbar)
         if(status==UserViewMode.HOST.toString()){
 
             binding.activityToolbar.activityToolbar.inflateMenu(R.menu.show_game_activity_menu)
@@ -62,24 +60,24 @@ class ShowSportsActivity : AppCompatActivity() {
         binding.emptyFieldCaption.visibility=View.GONE
 //        binding.expandedSec.visibility=View.GONE
 
-        binding.activityToolbar.activityToolbar.setOnMenuItemClickListener {
-            when(it.itemId){
-                R.id.edit_game_ic->{
-                    EditActivityFragment(object : EditActivityFragment.GameHandler{
-                        override fun getGame(): SportActivity {
-                            return viewModel.selectedEvent.value?.activity!!
-                        }
-
-                        override fun updateGame(game: SportActivity) {
-                            viewModel.updateGame(game)
-                        }
-
-                    }).show(supportFragmentManager,"EDIT_ACTIVITY_FRAGMENT")
-                }
-                else->{}
-            }
-            true
-        }
+//        binding.activityToolbar.activityToolbar.setOnMenuItemClickListener {
+//            when(it.itemId){
+//                R.id.edit_game_ic->{
+//                    EditActivityFragment(object : EditActivityFragment.GameHandler{
+//                        override fun getGame(): SportActivity {
+//                            return viewModel.selectedEvent.value?.activity!!
+//                        }
+//
+//                        override fun updateGame(game: SportActivity) {
+//                            viewModel.updateGame(game)
+//                        }
+//
+//                    }, viewModel.selectedEvent.value?.activity?.enrolledPlayers).show(supportFragmentManager,"EDIT_ACTIVITY_FRAGMENT")
+//                }
+//                else->{}
+//            }
+//            true
+//        }
 
         var isExpanded = false
 
@@ -136,6 +134,7 @@ class ShowSportsActivity : AppCompatActivity() {
                     playerListAdapter =
                         PlayerListViewAdapter(true.takeIf { status == UserViewMode.HOST.toString() } ?: false , viewModel.currentUserId!!)
                     this.viewModel.setHost(selectedEventData.activity.host)
+                    setSupportActionBar(binding.activityToolbar.activityToolbar)
 
                     supportActionBar?.apply {
                         title = selectedEventData.activity.title
@@ -227,7 +226,7 @@ class ShowSportsActivity : AppCompatActivity() {
                         viewModel.updateGame(game)
                     }
 
-                }).show(supportFragmentManager, "EDIT_ACTIVITY_FRAGMENT")
+                } , viewModel.selectedEvent.value?.activity?.enrolledPlayers ?: 1).show(supportFragmentManager, "EDIT_ACTIVITY_FRAGMENT")
             }
 
             else -> super.onOptionsItemSelected(item)

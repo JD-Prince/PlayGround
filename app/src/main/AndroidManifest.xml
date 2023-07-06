@@ -25,10 +25,12 @@
             android:exported="false" />
         <activity
             android:name=".view.mainscreen.profile.EditProfileActivity"
+            android:configChanges="orientation|screenSize|keyboardHidden|uiMode"
+
             android:exported="false" />
         <activity
             android:name=".view.mainscreen.activityhandler.NewSportActivityCreaterActivity"
-            android:configChanges="orientation|screenSize|keyboardHidden"
+            android:configChanges="orientation|screenSize|keyboardHidden|uiMode"
             android:exported="false"
             android:windowSoftInputMode="adjustResize" />
         <activity
