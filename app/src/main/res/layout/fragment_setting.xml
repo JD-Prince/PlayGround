@@ -61,9 +61,9 @@
         android:gravity="center_vertical"
         android:text="Log out"
         android:drawableStart="@drawable/ic_exit"
-        android:drawableTint="@color/red"
+        android:drawableTint="@android:color/holo_red_dark"
         android:drawablePadding="10dp"
-        android:textColor="@color/red"
+        android:textColor="@android:color/holo_red_dark"
         android:textSize="18sp"
         app:layout_constraintTop_toBottomOf="@id/change_password_logout_breaker" />
 

@@ -40,10 +40,11 @@ class PlayerListViewAdapter(private val isHost : Boolean = false,private val cur
                     image.size
                 ))
             }
+            this.name.text=item.alias
+
             if(currenUserId==item.playerId) this.name.text="You"
             val points = "${item.points} pts"
             this.points.text=points
-            this.name.text=item.alias
 
 //            hostMarker.visibility=View.GONE.takeIf { position != 0 }?:View.VISIBLE
             if(position!=0){
