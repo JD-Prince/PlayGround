@@ -63,5 +63,6 @@
     <string name="player_count_caution">Please note that you can only increase the number of players required for the game. Once incremented, the count cannot be decreased after updation. Be sure to set the value accordingly before confirming</string>
     <string name="game_history_empty_caption_for_the_player">There is no game history available for the player</string>
     <string name="feeds">Feeds</string>
+    <string name="body_of_the_the_card">body of the the card</string>
     >
 </resources>

@@ -2,6 +2,7 @@ package com.project.playground.adapter
 
 import android.content.Intent
 import android.graphics.BitmapFactory
+import android.text.TextUtils
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -36,11 +37,16 @@ class PlayerListViewAdapter(private val isHost : Boolean = false,private val cur
                     image.size
                 ))
             }
-            this.name.text=item.alias
             if(currenUserId==item.playerId) this.name.text="You"
             val points = "${item.points} pts"
             this.points.text=points
-            hostMarker.visibility=View.GONE.takeIf { position != 0 }?:View.VISIBLE
+            this.name.text=item.alias
+
+//            hostMarker.visibility=View.GONE.takeIf { position != 0 }?:View.VISIBLE
+            if(position!=0){
+
+                name.setCompoundDrawables(null,null,null,null)
+            }
 
             root.setOnClickListener{
                 if(currenUserId != item.playerId){
