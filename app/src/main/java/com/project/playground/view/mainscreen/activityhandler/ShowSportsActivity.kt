@@ -162,6 +162,8 @@ class ShowSportsActivity : AppCompatActivity() {
 
                     val dateAndTimeString = "${MonthOfTheYear.values()[monthOfYear]} $dayOfMonth, $yearValue ${selectedEventData.activity.time}"
                     binding.dateAndTime.text=dateAndTimeString
+                    binding.enrolledplayerCount.text=selectedEventData.activity.enrolledPlayers.toString()
+                    binding.totalplayerCount.text = selectedEventData.activity.requiredPlayers.toString()
                     binding.playersList.adapter = playerListAdapter
                     binding.playersList.layoutManager = LinearLayoutManager(this)
                     selectedEventData.playersList.let { playerList ->
