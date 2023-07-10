@@ -6,7 +6,7 @@ import com.project.playground.applicationmanager.CurrentUserHandler
 import com.project.playground.applicationmanager.database.dao.ActivityDao
 import com.project.playground.applicationmanager.database.dao.RegistrationDao
 import com.project.playground.applicationmanager.database.dao.UserDao
-import com.project.playground.applicationmanager.relations.RequestWithActivityAndPlayer
+import com.project.playground.model.relations.RequestWithActivityAndPlayer
 import com.project.playground.enums.NoticeTypes
 import com.project.playground.model.Notification
 import com.project.playground.model.ParticipantsRegister

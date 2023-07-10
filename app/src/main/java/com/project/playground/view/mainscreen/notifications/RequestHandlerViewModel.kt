@@ -3,7 +3,7 @@ package com.project.playground.view.mainscreen.notifications
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.project.playground.applicationmanager.relations.RequestWithActivityAndPlayer
+import com.project.playground.model.relations.RequestWithActivityAndPlayer
 import com.project.playground.applicationmanager.repositories.RegistrationRepository
 import com.project.playground.applicationmanager.repositories.UserRepository
 import com.project.playground.model.Notification

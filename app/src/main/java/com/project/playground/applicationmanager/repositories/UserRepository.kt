@@ -10,7 +10,7 @@ import com.project.playground.applicationmanager.UserRepository
 import com.project.playground.applicationmanager.database.dao.UserDao
 import com.project.playground.enums.AuthenticationStatements
 import com.project.playground.enums.RegistrationStatements
-import com.project.playground.applicationmanager.relations.PlayersWithEnrolledActivities
+import com.project.playground.model.relations.PlayersWithEnrolledActivities
 import com.project.playground.enums.EditProfileStatements
 import com.project.playground.view.mainscreen.myground.EnrolledGamesListProvider
 import kotlinx.coroutines.Dispatchers

@@ -1,4 +1,4 @@
-package com.project.playground.applicationmanager.relations
+package com.project.playground.model.relations
 
 import androidx.room.Embedded
 import androidx.room.Junction

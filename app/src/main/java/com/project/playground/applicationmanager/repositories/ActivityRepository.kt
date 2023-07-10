@@ -1,7 +1,7 @@
 package com.project.playground.applicationmanager.repositories
 
 import androidx.lifecycle.LiveData
-import com.project.playground.applicationmanager.relations.ActivitiesWithParticipants
+import com.project.playground.model.relations.ActivitiesWithParticipants
 import com.project.playground.model.SportActivity
 import com.project.playground.applicationmanager.CurrentUserHandler
 import com.project.playground.applicationmanager.EventRepo

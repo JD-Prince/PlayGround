@@ -7,7 +7,7 @@ import androidx.room.OnConflictStrategy
 import androidx.room.Query
 import androidx.room.Transaction
 import androidx.room.Update
-import com.project.playground.applicationmanager.relations.RequestWithActivityAndPlayer
+import com.project.playground.model.relations.RequestWithActivityAndPlayer
 import com.project.playground.model.Notification
 import com.project.playground.model.ParticipantsRegister
 import com.project.playground.model.PendingRegistrations

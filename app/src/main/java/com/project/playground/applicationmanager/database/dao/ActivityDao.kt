@@ -7,7 +7,7 @@ import androidx.room.OnConflictStrategy
 import androidx.room.Query
 import androidx.room.Transaction
 import androidx.room.Update
-import com.project.playground.applicationmanager.relations.ActivitiesWithParticipants
+import com.project.playground.model.relations.ActivitiesWithParticipants
 import com.project.playground.model.SportActivity
 
 @Dao

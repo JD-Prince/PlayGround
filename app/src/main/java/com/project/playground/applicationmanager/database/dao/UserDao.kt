@@ -7,7 +7,7 @@ import androidx.room.Transaction
 import androidx.room.Update
 import androidx.room.Upsert
 import com.project.playground.model.Player
-import com.project.playground.applicationmanager.relations.PlayersWithEnrolledActivities
+import com.project.playground.model.relations.PlayersWithEnrolledActivities
 
 @Dao
 interface UserDao  {

@@ -7,14 +7,14 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.project.playground.R
-import com.project.playground.applicationmanager.relations.RequestWithActivityAndPlayer
+import com.project.playground.model.relations.RequestWithActivityAndPlayer
 import com.project.playground.databinding.RequestCardBinding
 import com.project.playground.enums.UserViewMode
 import com.project.playground.view.mainscreen.activityhandler.ShowSportsActivity
 import com.project.playground.view.mainscreen.notifications.RequestHandler
 import com.project.playground.view.mainscreen.profile.ProfileViewActivity
 
-class RequestListAdapter(private val requestList : List<RequestWithActivityAndPlayer>,private val requestHandler: RequestHandler) : RecyclerView.Adapter<RequestListViewHolder>() {
+class RequestListAdapter(private val requestList : List<RequestWithActivityAndPlayer>, private val requestHandler: RequestHandler) : RecyclerView.Adapter<RequestListViewHolder>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RequestListViewHolder {
         val view : View = LayoutInflater.from(parent.context).inflate(R.layout.request_card,parent,false)
         return RequestListViewHolder(view)

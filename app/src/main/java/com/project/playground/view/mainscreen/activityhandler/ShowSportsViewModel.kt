@@ -4,7 +4,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.project.playground.applicationmanager.relations.ActivitiesWithParticipants
+import com.project.playground.model.relations.ActivitiesWithParticipants
 import com.project.playground.model.Player
 import com.project.playground.applicationmanager.EventRepo
 import com.project.playground.applicationmanager.SportsActivityHostProvider
