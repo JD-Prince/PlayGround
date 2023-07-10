@@ -3,8 +3,10 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="64dp"
+    android:minHeight="64dp"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="@color/brightblue"
+    android:foregroundTint="@color/white"
     app:titleTextColor="@color/white_variant"
     android:id="@+id/activity_toolbar">
 
