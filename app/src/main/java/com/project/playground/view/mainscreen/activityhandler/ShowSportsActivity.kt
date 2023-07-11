@@ -1,8 +1,12 @@
 package com.project.playground.view.mainscreen.activityhandler
 
+import android.content.Intent
+import android.graphics.Bitmap
 import android.graphics.BitmapFactory
+import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.provider.MediaStore
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
@@ -19,6 +23,13 @@ import com.project.playground.enums.MonthOfTheYear
 import com.project.playground.enums.UserViewMode
 import com.project.playground.model.SportActivity
 import com.project.playground.view.dialogues.ConfrimationDialogueFragment
+import com.project.playground.view.util.ImageViewActivity
+import com.squareup.picasso.Picasso
+import kotlinx.coroutines.coroutineScope
+import okhttp3.Dispatcher
+import java.io.ByteArrayInputStream
+import java.io.ByteArrayOutputStream
+import java.io.File
 import java.text.SimpleDateFormat
 import java.util.Calendar
 import java.util.Locale
@@ -154,6 +165,17 @@ class ShowSportsActivity : AppCompatActivity() {
                         title = selectedEventData.activity.title
                         setDisplayHomeAsUpEnabled(true)
                     }
+                    binding.thumbnail.setOnClickListener {
+                        val intent = Intent(this,ImageViewActivity::class.java)
+                        selectedEventData.activity.thumbnail?.let {
+                            image->
+                            val imageUri = getImageUriFromImageArray(image)
+                            println(imageUri)
+                            intent.putExtra("IMAGE_ARRAY",imageUri.toString())
+                        }
+
+                        startActivity(intent)
+                    }
                     val formattedDate=selectedEventData.activity.date
                     val dateFormat = SimpleDateFormat("dd/MM/yyyy", Locale.getDefault())
                     val date = dateFormat.parse(formattedDate)
@@ -247,6 +269,24 @@ class ShowSportsActivity : AppCompatActivity() {
             return true
         }
         return super.onCreateOptionsMenu(menu)
+    }
+    private fun getImageUriFromImageArray(imageArray: ByteArray): Uri {
+        val bitmap = BitmapFactory.decodeByteArray(imageArray, 0, imageArray.size)
+        val uri = getImageUriFromBitmap(bitmap)
+        return uri
+    }
+
+    private fun getImageUriFromBitmap(bitmap: Bitmap): Uri {
+        val bytes = ByteArrayOutputStream()
+//        bitmap.compress(Bitmap.CompressFormat.JPEG, 100, bytes)
+        val uri = Uri.parse(
+            MediaStore.Images.Media.insertImage(
+            baseContext.contentResolver,
+            bitmap,
+            "Image",
+            "Image"
+        ))
+        return uri
     }
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when (item.itemId) {

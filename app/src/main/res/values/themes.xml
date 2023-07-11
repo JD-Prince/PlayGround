@@ -30,4 +30,10 @@
     <style name="BottomNavigationView" parent="Theme.AppCompat.Light.NoActionBar">
         <item name="colorSecondaryContainer">@color/white</item>
     </style>
+    <style name="Theme.PlayGround.Fullscreen" parent="Theme.PlayGround">
+        <item name="android:actionBarStyle">@style/Widget.Theme.PlayGround.ActionBar.Fullscreen
+        </item>
+        <item name="android:windowActionBarOverlay">true</item>
+        <item name="android:windowBackground">@null</item>
+    </style>
 </resources>

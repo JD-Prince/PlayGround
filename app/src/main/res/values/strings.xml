@@ -64,5 +64,6 @@
     <string name="game_history_empty_caption_for_the_player">There is no game history available for the player</string>
     <string name="feeds">Feeds</string>
     <string name="body_of_the_the_card">body of the the card</string>
+    <string name="title_activity_image_view">ImageViewActivity</string>
     >
 </resources>

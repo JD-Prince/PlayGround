@@ -1,14 +1,20 @@
 package com.project.playground.view.mainscreen.profile
 
+import android.content.Intent
+import android.graphics.Bitmap
 import android.graphics.BitmapFactory
+import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.provider.MediaStore
 import android.view.MenuItem
 import androidx.activity.viewModels
 import androidx.appcompat.widget.Toolbar
 import com.project.playground.R
 import com.project.playground.applicationmanager.ViewModelFactory
 import com.project.playground.databinding.ActivityProfileViewBinding
+import com.project.playground.view.util.ImageViewActivity
+import java.io.ByteArrayOutputStream
 
 class ProfileViewActivity : AppCompatActivity() {
     private var _binding : ActivityProfileViewBinding? = null
@@ -43,6 +49,14 @@ class ProfileViewActivity : AppCompatActivity() {
                         )
                     )
                 }
+                profilePic.setOnClickListener {
+                    val intent = Intent(baseContext,ImageViewActivity::class.java)
+                    player.profilePicture?.let {
+                        val imageUri = getImageUriFromImageArray(it)
+                        intent.putExtra("IMAGE_ARRAY",imageUri.toString())
+                    }
+                    startActivity(intent)
+                }
 
                 alias.text=player.alias
                 bio.text=player.bio
@@ -52,6 +66,24 @@ class ProfileViewActivity : AppCompatActivity() {
                 enrolledGames.text=player.enrolledEventCount.toString()
             }
         }
+    }
+    private fun getImageUriFromImageArray(imageArray: ByteArray): Uri {
+        val bitmap = BitmapFactory.decodeByteArray(imageArray, 0, imageArray.size)
+        val uri = getImageUriFromBitmap(bitmap)
+        return uri
+    }
+
+    private fun getImageUriFromBitmap(bitmap: Bitmap): Uri {
+        val bytes = ByteArrayOutputStream()
+//        bitmap.compress(Bitmap.CompressFormat.JPEG, 100, bytes)
+        val uri = Uri.parse(
+            MediaStore.Images.Media.insertImage(
+                baseContext.contentResolver,
+                bitmap,
+                "Image",
+                "Image"
+            ))
+        return uri
     }
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         return when(item.itemId){

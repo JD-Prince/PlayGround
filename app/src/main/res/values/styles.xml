@@ -10,5 +10,8 @@
     <style name="CustomCursor">
         <item name="android:textCursorDrawable">@drawable/cursor</item>
     </style>
+    <style name="Widget.Theme.PlayGround.ActionBar.Fullscreen" parent="Widget.AppCompat.ActionBar">
+        <item name="android:background">@color/black_overlay</item>
+    </style>
 
 </resources>

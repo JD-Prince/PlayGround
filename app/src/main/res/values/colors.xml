@@ -18,4 +18,6 @@
     <color name="red">#92E53935</color>
     <color name="GamecardBg">#1D0096FF</color>
     <color name="aliceBlue">#F0F8FF</color>
+    <color name="dull_transparent">#11000000</color>
+
 </resources>

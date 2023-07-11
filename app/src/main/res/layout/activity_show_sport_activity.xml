@@ -26,6 +26,9 @@
         android:id="@+id/details_sec"
         android:layout_width="match_parent"
         android:layout_height="0dp"
+        android:scrollbars="vertical"
+        android:scrollbarSize="4dp"
+        android:scrollbarFadeDuration="@integer/material_motion_duration_medium_1"
         android:layout_marginBottom="20dp"
         android:fillViewport="true"
         app:layout_constraintBottom_toTopOf="@id/enroll_button"
@@ -41,7 +44,7 @@
             <FrameLayout
                 android:id="@+id/thumbnailContainer"
                 android:layout_width="match_parent"
-                android:layout_height="200dp"
+                android:layout_height="300dp"
                 android:background="@color/brightblue"
                 android:padding="5dp"
                 app:layout_constraintTop_toTopOf="parent">
@@ -50,7 +53,7 @@
                     android:id="@+id/thumbnail"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:scaleType="centerCrop"
+                    android:scaleType="fitXY"
                     android:src="@drawable/carrom" />
 
             </FrameLayout>
