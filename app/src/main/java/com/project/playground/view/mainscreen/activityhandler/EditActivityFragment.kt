@@ -81,6 +81,11 @@ class EditActivityFragment(private val gameHandler: GameHandler, private val enr
                     requiredplayers= requiredPlayers.editText?.text.toString().toInt()
 
                     if(requiredplayers > 1000) throw NumberFormatException()
+                    if(requiredplayers<=0){
+                        requiredPlayers.editText?.error = "The count value cannot be 0"
+                        return@setOnClickListener
+
+                    }
                     if(requiredplayers < enrolledPlayers){
                         requiredPlayers.editText?.error = "Unable to proceed with the count, $enrolledPlayers players has already enrolled. Please try with $enrolledPlayers or more"
                         return@setOnClickListener

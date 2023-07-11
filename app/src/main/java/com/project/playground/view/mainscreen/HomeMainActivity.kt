@@ -6,9 +6,12 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
 import androidx.appcompat.widget.Toolbar
+import androidx.core.content.ContextCompat
 import androidx.core.view.get
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import com.google.android.material.badge.BadgeDrawable
+import com.google.android.material.badge.BadgeUtils
 import com.project.playground.R
 import com.project.playground.applicationmanager.ViewModelFactory
 import com.project.playground.databinding.ActivityHomeBinding
@@ -59,6 +62,7 @@ class HomeMainActivity : AppCompatActivity() {
             when(it.itemId){
 
                 R.id.notification_ic->{
+
                     startActivity(Intent(this,NotificationHandlerActivity::class.java))
                 }
                 R.id.settings->{
