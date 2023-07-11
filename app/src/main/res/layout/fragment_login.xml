@@ -63,6 +63,16 @@
 
             />
     </com.google.android.material.textfield.TextInputLayout>
+    <TextView
+        android:id="@+id/forget_password_"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Forget password"
+        android:textColor="@color/brightblue"
+        android:layout_marginTop="8dp"
+        app:layout_constraintTop_toBottomOf="@id/password_layout"
+        app:layout_constraintEnd_toEndOf="@id/password_layout"
+        />
 
 
     <Button

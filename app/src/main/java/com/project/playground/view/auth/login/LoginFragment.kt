@@ -101,6 +101,9 @@ class LoginFragment : Fragment() {
             viewModel.login(username, password,sharedPreferences.edit())
 
         }
+        binding.forgetPassword.setOnClickListener {
+            ForgotPasswordFragment().show(childFragmentManager,"FORGET_PASSWORD_FRAGMENT")
+        }
         binding.usernameForLogin.setOnClickListener {
             binding.usernamaeLayout.error=null
         }
