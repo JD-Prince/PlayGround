@@ -67,7 +67,7 @@ class LoginFragment : Fragment() {
 
         viewModel.isEmptyField.observe(viewLifecycleOwner, Observer {FieldisEmpty ->
             if(FieldisEmpty){
-                Toast.makeText(requireContext(),"Please Fill all the Fields",Toast.LENGTH_SHORT).show()
+
                 if(binding.usernameForLogin.text.isNullOrEmpty()) binding.usernamaeLayout.error="Field cannot be empty"
 
                 if(binding.passwordForLogin.text.isNullOrEmpty()) binding.passwordLayout.error="Field cannot be empty"

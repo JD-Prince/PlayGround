@@ -65,7 +65,6 @@ class NewSportActivityCreaterActivity : AppCompatActivity() {
         }
 
         viewModel.isRegistrationSuccessful.observe(this, Observer {
-            Toast.makeText(baseContext,"Activity created Successfully",Toast.LENGTH_SHORT).show()
 //            LocalBroadcastManager.getInstance(this).sendBroadcast(Intent("ACTION_NEW_ACTIVITY_ADDED"))
             finish()
         })

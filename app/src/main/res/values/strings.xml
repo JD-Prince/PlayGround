@@ -59,7 +59,7 @@
     <string name="date">date</string>
     <string name="title1">TITLE</string>
     <string name="location1">Location</string>
-    <string name="password_constraints">password must have 8–20 chars,at least 1 uppercase,1 number,1 special char,1 lower case</string>
+    <string name="password_constraints">password must have 8–20 chars,at least 1 uppercase,1 number,1 special char,1 lower case,no space</string>
     <string name="player_count_caution">Please note that you can only increase the number of players required for the game. Once incremented, the count cannot be decreased after updation. Be sure to set the value accordingly before confirming</string>
     <string name="game_history_empty_caption_for_the_player">There is no game history available for the player</string>
     <string name="feeds">Feeds</string>

@@ -1,6 +1,7 @@
 package com.project.playground.view.mainscreen.profile
 
 import android.app.Activity
+import android.content.Context
 import android.content.Intent
 import android.graphics.Bitmap
 import android.graphics.BitmapFactory
@@ -119,6 +120,7 @@ class EditProfileActivity : AppCompatActivity() {
             }
             if(allowance) {
             viewModel.updateData()
+                val sharedPreferences = getSharedPreferences("LOGIN_PREF",Context.MODE_PRIVATE).edit().putString("USERNAME",viewModel.username)
         }
 
 

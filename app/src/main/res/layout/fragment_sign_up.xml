@@ -50,7 +50,7 @@
         style="@style/MyEditTextBackground">
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/name"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="2dp"
             android:layout_width="250dp"
             android:layout_height="wrap_content"
             android:inputType="textPersonName"
@@ -105,9 +105,10 @@
         android:id="@+id/passsword_hint"
         android:layout_width="230dp"
         android:layout_height="wrap_content"
-        android:text="password must have 8–20 chars,at least 1 uppercase,1 number,1 special char,1 lower case"
+        android:text="@string/password_constraints"
         android:textSize="12sp"
-        android:textColor="@color/red"
+        tools:visibility="visible"
+        android:textColor="@color/material_dynamic_neutral50"
         android:layout_marginStart="5dp"
         android:visibility="gone"
         app:layout_constraintTop_toBottomOf="@id/password_layout"
