@@ -143,6 +143,7 @@ class ShowSportsActivity : AppCompatActivity() {
             viewModel.selectedEvent.observe(this, Observer {
             selectedEventData->
                 if(selectedEventData!=null) {
+                    checkTheUserCanDepart()
                     val activity = selectedEventData.activity
                     playerListAdapter =
                         PlayerListViewAdapter(true.takeIf { status == UserViewMode.HOST.toString() } ?: false , viewModel.currentUserId!!)
@@ -215,6 +216,28 @@ class ShowSportsActivity : AppCompatActivity() {
         }
 
 
+    }
+
+    private fun checkTheUserCanDepart() {
+        val dateFromDB = viewModel.selectedEvent.value!!.activity.date
+        val dateFormat = SimpleDateFormat("dd/MM/yyy",Locale.getDefault())
+        val formattedDate = dateFormat.parse(dateFromDB)
+        
+        val gameDate = Calendar.getInstance()
+        gameDate.time=formattedDate!!
+
+        val currentDate = Calendar.getInstance()
+
+        val dateDifferenceInMillis = gameDate.timeInMillis - currentDate.timeInMillis
+        val differenceInDays=dateDifferenceInMillis/(24*60*60*1000)
+        if(differenceInDays<=3){
+            binding.leaveBtn.apply {
+                isEnabled=false
+                setBackgroundColor(ContextCompat.getColor(baseContext,com.google.android.material.R.color.m3_ref_palette_dynamic_neutral50))
+                setIconTintResource(R.color.white)
+                setTextColor(ContextCompat.getColor(baseContext,R.color.white))
+            }
+        }
 
     }
 
