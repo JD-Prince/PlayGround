@@ -1,6 +1,5 @@
 package com.project.playground.applicationmanager.repositories
 
-import android.widget.Toast
 import androidx.lifecycle.LiveData
 import com.project.playground.applicationmanager.CurrentUserHandler
 import com.project.playground.applicationmanager.database.dao.ActivityDao
@@ -13,8 +12,6 @@ import com.project.playground.model.ParticipantsRegister
 import com.project.playground.model.PendingRegistrations
 import com.project.playground.model.Player
 import com.project.playground.model.SportActivity
-import kotlinx.coroutines.coroutineScope
-import kotlinx.coroutines.runBlocking
 
 class RegistrationRepository(private val userHandler : CurrentUserHandler, private val registrationDao : RegistrationDao, private val userDao : UserDao,private val activityDao: ActivityDao) {
 
@@ -69,12 +66,15 @@ class RegistrationRepository(private val userHandler : CurrentUserHandler, priva
                 activityDao.updateGame(event)
 
 
+            val currentUser = userHandler.getCurrentUser()!!
             registrationDao.addNotice(
                 Notification.Notice(
                     request.senderId,
                     request.activityId,
                     NoticeTypes.REQUEST_ACCEPTED,
-                    event.title
+                    event.title,
+                    currentUser.playerId,
+                    currentUser.alias
                 )
             )
 
@@ -85,7 +85,8 @@ class RegistrationRepository(private val userHandler : CurrentUserHandler, priva
     }
     suspend fun declineRequest(request : Notification.Request,eventTitle : String){
         registrationDao.removeRequest(requestId = request.id)
-        registrationDao.addNotice(Notification.Notice(request.senderId,request.activityId,NoticeTypes.REQUEST_DECLINED,eventTitle))
+        val currentUser = userHandler.getCurrentUser()!!
+        registrationDao.addNotice(Notification.Notice(request.senderId,request.activityId,NoticeTypes.REQUEST_DECLINED,eventTitle,currentUser.playerId,currentUser.alias))
     }
 
     fun getAllNotices():LiveData<List<Notification.Notice>>{
@@ -102,8 +103,10 @@ class RegistrationRepository(private val userHandler : CurrentUserHandler, priva
         registrationDao.removeRequestFortheEvent(eventId).also {
             println("event ID = $eventId")
         }
+        val currentUser = userHandler.getCurrentUser()!!
         playerList.forEach{player->
-            registrationDao.addNotice(Notification.Notice(receiverId = player.playerId,eventId,NoticeTypes.EVENT_CANCELLED,title))
+
+            registrationDao.addNotice(Notification.Notice(receiverId = player.playerId,eventId,NoticeTypes.EVENT_CANCELLED,title,currentUser.playerId,currentUser.alias))
             registrationDao.removeRegistration(eventId)
             player.points-=10
             userDao.updatePlayer(player)
@@ -133,9 +136,39 @@ class RegistrationRepository(private val userHandler : CurrentUserHandler, priva
         println("event_id $pendingRequestList --> $event")
         registrationDao.removeAllRequestForTheGame(event.eventId)
         registrationDao.removeAllPendingRegistration(event.eventId)
-        pendingRequestList.forEach { request ->
-            registrationDao.addNotice(Notification.Notice(request.senderId,request.activityId,NoticeTypes.EVENT_FILLED,event.title))
+        userHandler.getCurrentUser()?.let {
+            pendingRequestList.forEach { request ->
+                registrationDao.addNotice(Notification.Notice(request.senderId,request.activityId,NoticeTypes.EVENT_FILLED,event.title,it.playerId,it.alias))
+            }
         }
 
+
+    }
+
+    suspend fun leaveGame(game : SportActivity) {
+        userHandler.getCurrentUser()?.let { currenUserObj->
+           registrationDao.removePlayer(currenUserObj.playerId,game.eventId)
+            registrationDao.addNotice(Notification.Notice(
+                receiverId = game.host,
+                activityId = game.eventId,
+                noticeType = NoticeTypes.PLAYER_DEPARTED,
+                activityTitle = game.title,
+                senderId = currenUserObj.playerId,
+                senderName = currenUserObj.alias
+            ))
+            game.enrolledPlayers--
+            activityDao.updateGame(game)
+            currenUserObj.apply {
+                enrolledEventCount--
+                if(points>22){
+                    points-=22
+                }
+                else points=0
+
+            }
+            userDao.updatePlayer(currenUserObj)
+        }
+
+        //todo check every non null assertion
     }
 }

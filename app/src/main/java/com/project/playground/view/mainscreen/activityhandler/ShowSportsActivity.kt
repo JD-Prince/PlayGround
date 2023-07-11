@@ -91,6 +91,19 @@ class ShowSportsActivity : AppCompatActivity() {
                 }
                 UserViewMode.ENROLLED.toString()->{
                     visibility=View.GONE
+                    binding.leaveBtn.apply {
+                        visibility=View.VISIBLE
+                        setOnClickListener {
+                            ConfrimationDialogueFragment("Are you sure want to leave the game",object : ConfrimationDialogueFragment.ProcessExecutor{
+                                override fun execute(result: ConfrimationStatus) {
+                                    viewModel.leaveGame()
+                                    finish()
+                                }
+
+                            }).show(supportFragmentManager,"LEAVE_GAME_CONFRIMATION_TAG")
+                        }
+                    }
+
                 }
                 else->{}
             }

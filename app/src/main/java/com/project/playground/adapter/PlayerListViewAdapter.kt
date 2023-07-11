@@ -29,7 +29,7 @@ class PlayerListViewAdapter(private val isHost : Boolean = false,private val cur
         val item = playersWithHost[position]
 
         holder.binding.apply {
-            profilePic.setImageResource(R.drawable.ic_profile)
+            profilePic.setImageResource(R.drawable.player_profile_default_ic)
             name.text=null
             points.text=null
 //            closeIc.visibility=View.VISIBLE.takeIf { isHost && position!=0}?:View.GONE

@@ -66,8 +66,16 @@ class NoticeListAdapter(private val noticeList : List<Notification.Notice>) : Re
                 holder.binding.content.text="Your Request for the game ${item.activityTitle} has been filled up"
                 holder.binding.leadingIcon.setImageResource(R.drawable.close_ic)
             }
+            NoticeTypes.PLAYER_DEPARTED->{
+                holder.binding.apply {
+                    title.text = "Player Departed"
+                    val content = "Player ${item.senderName} has left the game ${item.activityTitle}"
+                    this.content.text = content
+                    leadingIcon.setImageResource(R.drawable.alert_ic)
+                }
+            }
         }
-
+//todo update the list size according to username
     }
 
 }

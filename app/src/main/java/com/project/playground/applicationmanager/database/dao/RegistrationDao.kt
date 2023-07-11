@@ -66,4 +66,7 @@ interface RegistrationDao {
     @Query("delete from pendingregistrations where eventId == :eventId")
     suspend fun removeAllPendingRegistration(eventId: Int)
 
+    @Query("delete from ParticipantsRegister where eventId = :gameId and playerId = :playerId ")
+    suspend fun removePlayer(playerId: Int,gameId : Int)
+
 }

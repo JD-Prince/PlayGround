@@ -377,17 +377,7 @@
                 android:layout_margin="10dp"
                 />
 
-            <com.google.android.material.button.MaterialButton
-                style="@style/Widget.Material3.Button.OutlinedButton"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_margin="10dp"
-                android:text="Cancle Game"
-                android:textColor="@color/red"
-                android:visibility="gone"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/player_detail_card"
-                app:strokeColor="@color/red" />
+
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/cancel_btn"
@@ -404,6 +394,24 @@
                 android:textSize="14sp"
                 android:elevation="6dp"
                 app:icon="@drawable/delete_ic"
+                app:iconTint="@android:color/holo_red_dark"
+                app:layout_constraintStart_toStartOf="@id/player_detail_card"
+                app:layout_constraintTop_toBottomOf="@id/player_detail_card" />
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/leave_btn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:backgroundTint="@color/white"
+                android:drawablePadding="5dp"
+                android:gravity="center"
+                android:paddingBottom="5dp"
+                android:visibility="gone"
+                android:text="Leave Game"
+                android:textColor="@android:color/holo_red_dark"
+                android:textSize="14sp"
+                android:elevation="6dp"
+                app:icon="@drawable/ic_exit"
                 app:iconTint="@android:color/holo_red_dark"
                 app:layout_constraintStart_toStartOf="@id/player_detail_card"
                 app:layout_constraintTop_toBottomOf="@id/player_detail_card" />

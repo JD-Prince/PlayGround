@@ -20,7 +20,7 @@
         android:id="@+id/player_profile_image"
         android:layout_width="40dp"
         android:layout_height="40dp"
-        android:src="@drawable/ic_profile"
+        android:src="@drawable/player_profile_default_ic"
             android:scaleType="centerCrop"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"

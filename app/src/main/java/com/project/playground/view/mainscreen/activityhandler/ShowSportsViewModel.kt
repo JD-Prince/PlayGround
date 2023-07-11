@@ -86,5 +86,13 @@ class ShowSportsViewModel(private val eventRepo : EventRepo,private val hostProv
         }
     }
 
+    fun leaveGame() {
+        if(this.currentEventId == 0 ) throw IllegalArgumentException("Unable to proceed with the request")
+        viewModelScope.launch {
+            registrationRepo.leaveGame(selectedEvent.value!!.activity)
+            //todo check non null assertion
+        }
+    }
+
 
 }

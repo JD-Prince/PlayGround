@@ -32,8 +32,12 @@ sealed class Notification(
         val activityId: Int,
         val noticeType:NoticeTypes,
         val activityTitle : String,
+        val senderId : Int,
+        val senderName : String,
         @PrimaryKey(autoGenerate = true)
         val id : Int = 0
-    ):Notification(receiverId)
+    ):Notification(receiverId){
+        var isRead = false
+    }
 
 }
