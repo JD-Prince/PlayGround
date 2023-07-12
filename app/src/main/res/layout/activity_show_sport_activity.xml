@@ -87,7 +87,7 @@
                 android:layout_marginStart="5dp"
                 android:layout_marginTop="3dp"
                 android:text="@string/date_time"
-                android:textColor="@color/material_dynamic_neutral50"
+                android:textColor="@color/gray50"
                 android:textSize="16sp"
                 app:layout_constraintStart_toEndOf="@id/date_and_time_ic"
                 app:layout_constraintTop_toBottomOf="@id/sports" />
@@ -100,7 +100,7 @@
                 android:src="@drawable/date_and_time_ic"
                 app:layout_constraintStart_toStartOf="@id/sports"
                 app:layout_constraintTop_toTopOf="@id/date_and_time"
-                app:tint="@color/material_dynamic_neutral50" />
+                app:tint="@color/gray50" />
 
             <ImageView
                 android:id="@+id/loc_ic"
@@ -120,7 +120,7 @@
                 android:layout_marginStart="3dp"
                 android:layout_marginEnd="5dp"
                 android:text="@string/location"
-                android:textColor="@color/material_dynamic_neutral50"
+                android:textColor="@color/gray50"
                 android:textSize="16sp"
                 app:layout_constraintStart_toEndOf="@id/loc_ic"
                 app:layout_constraintTop_toBottomOf="@id/date_and_time" />
@@ -131,7 +131,7 @@
                 android:text="Total number of players required : "
                 android:textSize="16sp"
                 android:layout_marginStart="20dp"
-                android:textColor="@color/material_dynamic_neutral50"
+                android:textColor="@color/gray50"
                 app:layout_constraintTop_toBottomOf="@id/loc"
                 app:layout_constraintStart_toStartOf="parent"
                 />
@@ -141,7 +141,7 @@
                 android:layout_height="wrap_content"
                 android:text="0"
                 android:textSize="16sp"
-                android:textColor="@color/material_dynamic_neutral50"
+                android:textColor="@color/gray50"
                 app:layout_constraintStart_toEndOf="@id/totalplayer_caption"
                 app:layout_constraintTop_toTopOf="@id/totalplayer_caption"
                 />
@@ -151,7 +151,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Number of players enrolled : "
-                android:textColor="@color/material_dynamic_neutral50"
+                android:textColor="@color/gray50"
                 android:textSize="16sp"
                 android:layout_marginStart="20dp"
                 app:layout_constraintStart_toStartOf="parent"
@@ -163,7 +163,7 @@
                 android:layout_height="wrap_content"
                 android:text="0"
                 android:textSize="16sp"
-                android:textColor="@color/material_dynamic_neutral50"
+                android:textColor="@color/gray50"
                 app:layout_constraintTop_toTopOf="@id/enrolledPlayer_caption"
                 app:layout_constraintStart_toEndOf="@id/enrolledPlayer_caption"
                 />
@@ -246,7 +246,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="8dp"
                         android:text="Description here"
-                        android:textColor="@color/material_dynamic_neutral50"
+                        android:textColor="@color/gray50"
                         android:textSize="14sp"
                         app:layout_constraintStart_toStartOf="@id/description_caption"
                         app:layout_constraintTop_toBottomOf="@id/description_caption" />
@@ -256,7 +256,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="1dp"
                         android:layout_marginTop="15dp"
-                        android:background="@color/material_dynamic_neutral80"
+                        android:background="@color/gray80"
                         app:layout_constraintTop_toBottomOf="@id/description" />
 
                     <TextView
@@ -277,7 +277,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="8dp"
                         android:text="other information here"
-                        android:textColor="@color/material_dynamic_neutral50"
+                        android:textColor="@color/gray50"
                         android:textSize="14sp"
                         app:layout_constraintStart_toStartOf="@id/otherInformation_caption"
                         app:layout_constraintTop_toBottomOf="@id/otherInformation_caption" />
@@ -335,7 +335,7 @@
                         android:layout_height="0dp"
                         android:gravity="center"
                         android:text="@string/no_players_yet"
-                        android:textColor="@color/material_dynamic_neutral50"
+                        android:textColor="@color/gray50"
                         app:layout_constraintBottom_toBottomOf="@id/players_list"
                         app:layout_constraintTop_toTopOf="@id/players_list" />
 
@@ -408,7 +408,7 @@
                 android:layout_marginTop="20dp"
                 android:text="@string/notice_to_leave_game"
                 android:visibility="gone"
-                android:textColor="@color/material_dynamic_neutral50"
+                android:textColor="@color/gray50"
                 app:layout_constraintTop_toBottomOf="@id/player_detail_card"
                 />
 

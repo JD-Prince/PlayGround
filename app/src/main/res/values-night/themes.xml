@@ -20,8 +20,8 @@
         <!-- Customize the colors as per your preference -->
         <item name="colorAccent">@color/brightblue</item>
         <item name="android:textColorPrimaryInverse">@color/white_variant</item>
-        <item name="android:textColorPrimary">@color/material_dynamic_neutral50</item>
-        <item name="android:textColorSecondary">@color/material_dynamic_neutral50</item>
+        <item name="android:textColorPrimary">@color/gray50</item>
+        <item name="android:textColorSecondary">@color/gray50</item>
     </style>
 
     <style name="customTemp" parent="Theme.MaterialComponents">

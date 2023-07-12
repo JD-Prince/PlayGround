@@ -70,7 +70,7 @@
             android:ellipsize="end"
             android:maxLines="1"
             android:text="Location"
-            android:textColor="@color/material_dynamic_neutral50"
+            android:textColor="@color/gray50"
             android:textSize="12sp"
             app:layout_constraintStart_toEndOf="@id/location_ic"
             app:layout_constraintTop_toBottomOf="@id/sports" />
@@ -94,7 +94,7 @@
             android:ellipsize="end"
             android:maxLines="1"
             android:text="Date and Time"
-            android:textColor="@color/material_dynamic_neutral50"
+            android:textColor="@color/gray50"
             android:textSize="12sp"
             app:layout_constraintStart_toEndOf="@id/date_time_ic"
             app:layout_constraintTop_toBottomOf="@id/location"
@@ -133,7 +133,7 @@
             android:layout_marginStart="16dp"
             android:gravity="center"
             android:text="Members Required"
-            android:textColor="@color/material_dynamic_neutral50"
+            android:textColor="@color/gray50"
             android:textSize="12sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@id/members_required" />

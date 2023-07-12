@@ -37,7 +37,7 @@
             android:layout_height="wrap_content"
             android:textColor="@color/black"
             android:inputType="textPersonName"
-            android:textColorHint="@color/material_dynamic_neutral80"
+            android:textColorHint="@color/gray80"
 
             />
     </com.google.android.material.textfield.TextInputLayout>

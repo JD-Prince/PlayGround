@@ -13,7 +13,7 @@
 <!--        android:layout_height="wrap_content"-->
 <!--        android:text="somefun"-->
 <!--        android:textSize="18sp"-->
-<!--        android:textColor="@color/material_dynamic_neutral50"-->
+<!--        android:textColor="@color/gray50"-->
 <!--        app:layout_constraintTop_toTopOf="parent"-->
 <!--        app:layout_constraintStart_toStartOf="parent"-->
 
@@ -40,7 +40,7 @@
         android:layout_height="wrap_content"
         android:text="@string/date"
         android:textSize="14sp"
-        android:textColor="@color/material_dynamic_neutral50"
+        android:textColor="@color/gray50"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"/>
 
@@ -78,7 +78,7 @@
 <!--        android:layout_width="wrap_content"-->
 <!--        android:layout_height="wrap_content"-->
 <!--        android:text="host"-->
-<!--        android:textColor="@color/material_dynamic_neutral50"-->
+<!--        android:textColor="@color/gray50"-->
 <!--        android:textSize="16sp"-->
 <!--        app:layout_constraintTop_toBottomOf="@id/title"-->
 <!--        android:layout_marginTop=".5dp"-->
@@ -89,7 +89,7 @@
         android:layout_height="wrap_content"
         android:text="@string/location1"
         android:textSize="16sp"
-        android:textColor="@color/material_dynamic_neutral50"
+        android:textColor="@color/gray50"
         app:layout_constraintTop_toBottomOf="@id/title"
         android:layout_marginTop="1dp"
         android:layout_marginStart="3dp"

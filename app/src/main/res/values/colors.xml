@@ -19,5 +19,6 @@
     <color name="GamecardBg">#1D0096FF</color>
     <color name="aliceBlue">#F0F8FF</color>
     <color name="dull_transparent">#11000000</color>
-
+    <color name="gray80">#C5C7C9</color>
+    <color name="gray50">#747679</color>
 </resources>

@@ -46,7 +46,7 @@
             android:maxWidth="200dp"
             android:layout_marginStart="16dp"
             android:text="Username - userID"
-            android:textColor="@color/material_dynamic_neutral50"
+            android:textColor="@color/gray50"
             android:textSize="18sp"
             android:drawableEnd="@drawable/crown_icon"
             android:drawableTint="@android:color/holo_orange_dark"
@@ -62,7 +62,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="10 pt"
-            android:textColor="@color/material_dynamic_neutral50"
+            android:textColor="@color/gray50"
             android:textSize="18sp"
             android:layout_marginEnd="24dp"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -95,7 +95,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="@id/points"
             app:layout_constraintBottom_toBottomOf="@id/points"
-            app:tint="@color/material_dynamic_neutral50"
+            app:tint="@color/gray50"
             />
 
 

@@ -97,7 +97,7 @@ class ShowSportsActivity : AppCompatActivity() {
             when(status){
                 UserViewMode.HOST.toString()->{
                     text="CANCEL EVENT"
-                    setTextColor(ContextCompat.getColor(baseContext, com.google.android.material.R.color.m3_ref_palette_dynamic_neutral50))
+                    setTextColor(ContextCompat.getColor(baseContext, R.color.gray50))
                     background=ContextCompat.getDrawable(baseContext,R.drawable.button_bg)
                 }
                 UserViewMode.ENROLLED.toString()->{
@@ -256,7 +256,7 @@ class ShowSportsActivity : AppCompatActivity() {
         if(differenceInDays<=3){
             binding.leaveBtn.apply {
                 isEnabled=false
-                setBackgroundColor(ContextCompat.getColor(baseContext,com.google.android.material.R.color.m3_ref_palette_dynamic_neutral50))
+                setBackgroundColor(ContextCompat.getColor(baseContext,R.color.gray50))
                 setIconTintResource(R.color.white)
                 setTextColor(ContextCompat.getColor(baseContext,R.color.white))
             }

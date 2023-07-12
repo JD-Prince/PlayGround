@@ -61,7 +61,7 @@
             android:layout_height="match_parent"
             android:src="@drawable/close_ic"
             android:background="@color/newBg"
-            app:tint="@color/material_dynamic_neutral50"
+            app:tint="@color/gray50"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="@id/accept_button"
             app:layout_constraintBottom_toBottomOf="@id/accept_button"
