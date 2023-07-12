@@ -57,7 +57,6 @@ class EditProfileActivity : AppCompatActivity() {
         viewModel.result.observe(this){result->
             when(result){
                 EditProfileStatements.UPDATED_SUCCESSFUL->{
-                    Toast.makeText(baseContext,"Profile Updated Successfully",Toast.LENGTH_SHORT).show()
                     finish()
                 }
                 EditProfileStatements.USERNAME_IS_NOT_AVAILABLE->

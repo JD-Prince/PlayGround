@@ -400,6 +400,18 @@
                 app:iconTint="@android:color/holo_red_dark"
                 app:layout_constraintStart_toStartOf="@id/player_detail_card"
                 app:layout_constraintTop_toBottomOf="@id/player_detail_card" />
+            <TextView
+                android:id="@+id/leave_game_Instruction"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingHorizontal="20dp"
+                android:layout_marginTop="20dp"
+                android:text="@string/notice_to_leave_game"
+                android:visibility="gone"
+                android:textColor="@color/material_dynamic_neutral50"
+                app:layout_constraintTop_toBottomOf="@id/player_detail_card"
+                />
+
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/leave_btn"
                 android:layout_width="wrap_content"
@@ -417,7 +429,7 @@
                 app:icon="@drawable/ic_exit"
                 app:iconTint="@android:color/holo_red_dark"
                 app:layout_constraintStart_toStartOf="@id/player_detail_card"
-                app:layout_constraintTop_toBottomOf="@id/player_detail_card" />
+                app:layout_constraintTop_toBottomOf="@id/leave_game_Instruction" />
 
 
 

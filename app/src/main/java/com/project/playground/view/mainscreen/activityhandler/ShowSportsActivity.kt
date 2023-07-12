@@ -102,6 +102,7 @@ class ShowSportsActivity : AppCompatActivity() {
                 }
                 UserViewMode.ENROLLED.toString()->{
                     visibility=View.GONE
+                    binding.leaveGameInstruction.visibility=View.VISIBLE
                     binding.leaveBtn.apply {
                         visibility=View.VISIBLE
                         setOnClickListener {

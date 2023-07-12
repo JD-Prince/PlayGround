@@ -65,5 +65,6 @@
     <string name="feeds">Feeds</string>
     <string name="body_of_the_the_card">body of the the card</string>
     <string name="title_activity_image_view">ImageViewActivity</string>
+    <string name="notice_to_leave_game">Important Notice: As the event date approaches, please note that you will not be able to leave the game within the last 3 days prior to the event. We request you to make a commitment to attend and participate in the game.</string>
     >
 </resources>

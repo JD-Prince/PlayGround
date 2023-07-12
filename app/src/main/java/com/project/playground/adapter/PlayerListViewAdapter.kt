@@ -28,7 +28,9 @@ class PlayerListViewAdapter(private val isHost : Boolean = false,private val cur
     override fun onBindViewHolder(holder: PlayerListViewHolder, position: Int) {
         val item = playersWithHost[position]
 
+
         holder.binding.apply {
+            root.isEnabled=true
             profilePic.setImageResource(R.drawable.player_profile_default_ic)
             name.text=null
             points.text=null
@@ -42,7 +44,10 @@ class PlayerListViewAdapter(private val isHost : Boolean = false,private val cur
             }
             this.name.text=item.alias
 
-            if(currenUserId==item.playerId) this.name.text="You"
+            if(currenUserId==item.playerId) {
+                this.name.text="You"
+                root.isEnabled=false
+            }
             val points = "${item.points} pts"
             this.points.text=points
 
