@@ -61,11 +61,6 @@ private object DatabaseHandler : DaoProvider,CurrentUserHandler
                     "application_database"
                 ).build()
                 INSTANCE = instance
-//                CoroutineScope(Dispatchers.Default).launch{
-//                    fakeDB.activityList.forEach { INSTANCE.activityDao().insertActivity(it) }
-//                    fakeDB.userList.forEach{ INSTANCE.userDao().upsertUser(it)}
-////                    fakeDB.registeration.forEach{INSTANCE.registrationDao().registerEvent(it)}
-//                }
 
             }
         }

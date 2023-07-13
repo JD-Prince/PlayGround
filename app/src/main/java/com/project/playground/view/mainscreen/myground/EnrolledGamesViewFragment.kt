@@ -8,7 +8,6 @@ import android.view.ViewGroup
 import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.project.playground.R
-import com.project.playground.adapter.ActivityListAdapter
 import com.project.playground.adapter.SportsListRVAdapter
 import com.project.playground.applicationmanager.ViewModelFactory
 import com.project.playground.databinding.FragmentEnrolledGamesViewBinding
