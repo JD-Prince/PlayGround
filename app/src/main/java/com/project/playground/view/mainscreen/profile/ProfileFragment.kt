@@ -15,6 +15,7 @@ import androidx.fragment.app.viewModels
 import com.project.playground.applicationmanager.ViewModelFactory
 import com.project.playground.databinding.FragmentProfileBinding
 import com.project.playground.enums.ConfrimationStatus
+import com.project.playground.util.CacheUtils
 import com.project.playground.view.auth.AuthActivity
 import com.project.playground.view.dialogues.ConfrimationDialogueFragment
 import com.project.playground.view.util.ImageViewActivity
@@ -45,12 +46,18 @@ class ProfileFragment : Fragment() {
         viewModel.getUserData().observe(viewLifecycleOwner){
             playerObj->
             binding.profilePic.setOnClickListener {
-                val intent = Intent(requireContext(), ImageViewActivity::class.java)
+                val imageViewIntent = Intent(requireContext(),ImageViewActivity::class.java)
+
+                val imageKey = "IMAGE_DATA"
                 playerObj.profilePicture?.let {
-                    val imageUri = getImageUriFromImageArray(it)
-                    intent.putExtra("IMAGE_ARRAY",imageUri.toString())
+                    CacheUtils.saveBitmapToCache(imageKey,BitmapFactory.decodeByteArray(
+                        it,
+                        0,
+                        it.size
+                    ))
+                    imageViewIntent.putExtra("IMG_KEY",imageKey)
                 }
-                startActivity(intent)
+                startActivity(imageViewIntent)
             }
             playerObj.profilePicture?.let { image->
                 binding.profilePic.setImageBitmap(
@@ -72,24 +79,8 @@ class ProfileFragment : Fragment() {
 //
 
 
-    }
-    private fun getImageUriFromImageArray(imageArray: ByteArray): Uri {
-        val bitmap = BitmapFactory.decodeByteArray(imageArray, 0, imageArray.size)
-        val uri = getImageUriFromBitmap(bitmap)
-        return uri
-    }
 
-    private fun getImageUriFromBitmap(bitmap: Bitmap): Uri {
-        val bytes = ByteArrayOutputStream()
-//        bitmap.compress(Bitmap.CompressFormat.JPEG, 100, bytes)
-        val uri = Uri.parse(
-            MediaStore.Images.Media.insertImage(
-                requireContext().contentResolver,
-                bitmap,
-                "Image",
-                "Image"
-            ))
-        return uri
+
     }
 
     override fun onDestroyView() {

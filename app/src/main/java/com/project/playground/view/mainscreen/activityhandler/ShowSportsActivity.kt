@@ -11,6 +11,7 @@ import android.view.Menu
 import android.view.MenuItem
 import android.view.View
 import androidx.activity.viewModels
+import android.util.LruCache
 import androidx.core.content.ContextCompat
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -22,6 +23,7 @@ import com.project.playground.enums.ConfrimationStatus
 import com.project.playground.enums.MonthOfTheYear
 import com.project.playground.enums.UserViewMode
 import com.project.playground.model.SportActivity
+import com.project.playground.util.CacheUtils
 import com.project.playground.view.dialogues.ConfrimationDialogueFragment
 import com.project.playground.view.util.ImageViewActivity
 import com.squareup.picasso.Picasso
@@ -167,15 +169,50 @@ class ShowSportsActivity : AppCompatActivity() {
                         setDisplayHomeAsUpEnabled(true)
                     }
                     binding.thumbnail.setOnClickListener {
-                        val intent = Intent(this,ImageViewActivity::class.java)
-                        selectedEventData.activity.thumbnail?.let {
-                            image->
-                            val imageUri = getImageUriFromImageArray(image)
-                            println(imageUri)
-                            intent.putExtra("IMAGE_ARRAY",imageUri.toString())
-                        }
+//                        val intent = Intent(this,ImageViewActivity::class.java)
+//                        selectedEventData.activity.thumbnail?.let {
+//                            image->
+//                            val imageUri = getImageUriFromImageArray(image)
+//                            println(imageUri)
+//                            intent.putExtra("IMAGE_ARRAY",imageUri.toString())
+//                        }
+//
+//                        startActivity(intent)
+//                         var byteArrayCache: LruCache<String, ByteArray?>
+//                        // Initialize the LruCache with a suitable cache size
+//                        val maxCacheSize = 10 * 1024 * 1024 // 10 MB
+//                        byteArrayCache = LruCache(maxCacheSize)
+//
+//                        // Generate a unique identifier for the byte array
+//                        val identifier = "byteArrayIdentifier"
+//
+//                        // Create and store the byte array in the cache
+//                        val byteArray = selectedEventData.activity.thumbnail// Replace this with your actual byte array
+//                        byteArray?.let {
+//                            byteArrayCache.put(identifier, it)
+//                            println("byteArray is not null bro")
+//                        }
+//
+//                        // Pass the identifier to the receiving activity
+//                        val intent = Intent(this, ImageViewActivity::class.java)
+//                        intent.putExtra("BYTE_ARRAY_ID", identifier)
+//                        startActivity(intent)
 
-                        startActivity(intent)
+                        val imageViewIntent = Intent(this,ImageViewActivity::class.java)
+
+                        val imageKey = "IMAGE_DATA"
+                        selectedEventData.activity.thumbnail?.let {
+                            CacheUtils.saveBitmapToCache(imageKey,BitmapFactory.decodeByteArray(
+                            it,
+                            0,
+                            it.size
+                        ))
+                            imageViewIntent.putExtra("IMG_KEY",imageKey)
+                        }
+                        startActivity(imageViewIntent)
+
+
+
                     }
                     val formattedDate=selectedEventData.activity.date
                     val dateFormat = SimpleDateFormat("dd/MM/yyyy", Locale.getDefault())
@@ -271,24 +308,9 @@ class ShowSportsActivity : AppCompatActivity() {
         }
         return super.onCreateOptionsMenu(menu)
     }
-    private fun getImageUriFromImageArray(imageArray: ByteArray): Uri {
-        val bitmap = BitmapFactory.decodeByteArray(imageArray, 0, imageArray.size)
-        val uri = getImageUriFromBitmap(bitmap)
-        return uri
-    }
 
-    private fun getImageUriFromBitmap(bitmap: Bitmap): Uri {
-        val bytes = ByteArrayOutputStream()
-//        bitmap.compress(Bitmap.CompressFormat.JPEG, 100, bytes)
-        val uri = Uri.parse(
-            MediaStore.Images.Media.insertImage(
-            baseContext.contentResolver,
-            bitmap,
-            "Image",
-            "Image"
-        ))
-        return uri
-    }
+
+
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when (item.itemId) {
             android.R.id.home -> {

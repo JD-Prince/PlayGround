@@ -51,10 +51,6 @@ class MyActivitiesFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         recyclerviewAdapter= SportsListRVAdapter(UserViewMode.HOST)
         Log.d("MyCheck","on oVC")
-//        LocalBroadcastManager.getInstance(requireContext()).registerReceiver(dataUpdateReceiver,
-//            IntentFilter("ACTION_NEW_ACTIVITY_ADDED")
-//        )
-
 
         binding.newActivityCreaterButton.setOnClickListener {
 
@@ -84,7 +80,7 @@ class MyActivitiesFragment : Fragment() {
         viewModel.myActivitiesList.observe(viewLifecycleOwner,
         Observer {list->
 
-            binding.emptyfieldText.text = "You haven't created any Activities".takeIf {  list.isEmpty()}
+            binding.emptyfieldText.text = "You haven't created any Activities".takeIf {  list.isEmpty() }
             recyclerviewAdapter.updateDatabase(list)
 
 
@@ -95,15 +91,13 @@ class MyActivitiesFragment : Fragment() {
     override fun onPause() {
         super.onPause()
         Log.d("MyCheck","on pause")
-//        parentFragmentManager.beginTransaction().detach(this).commit()
     }
 
     override fun onDestroyView() {
         super.onDestroyView()
         Log.d("MyCheck","on destroy")
+        binding.activityList.adapter=null
         _binding=null
-
-//        LocalBroadcastManager.getInstance(requireContext()).unregisterReceiver(dataUpdateReceiver)
     }
 }
 

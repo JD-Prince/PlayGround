@@ -13,6 +13,7 @@ import androidx.appcompat.widget.Toolbar
 import com.project.playground.R
 import com.project.playground.applicationmanager.ViewModelFactory
 import com.project.playground.databinding.ActivityProfileViewBinding
+import com.project.playground.util.CacheUtils
 import com.project.playground.view.util.ImageViewActivity
 import java.io.ByteArrayOutputStream
 
@@ -50,12 +51,18 @@ class ProfileViewActivity : AppCompatActivity() {
                     )
                 }
                 profilePic.setOnClickListener {
-                    val intent = Intent(baseContext,ImageViewActivity::class.java)
+                    val imageViewIntent = Intent(this@ProfileViewActivity,ImageViewActivity::class.java)
+
+                    val imageKey = "IMAGE_DATA"
                     player.profilePicture?.let {
-                        val imageUri = getImageUriFromImageArray(it)
-                        intent.putExtra("IMAGE_ARRAY",imageUri.toString())
+                        CacheUtils.saveBitmapToCache(imageKey,BitmapFactory.decodeByteArray(
+                            it,
+                            0,
+                            it.size
+                        ))
+                        imageViewIntent.putExtra("IMG_KEY",imageKey)
                     }
-                    startActivity(intent)
+                    startActivity(imageViewIntent)
                 }
 
                 alias.text=player.alias
@@ -67,24 +74,7 @@ class ProfileViewActivity : AppCompatActivity() {
             }
         }
     }
-    private fun getImageUriFromImageArray(imageArray: ByteArray): Uri {
-        val bitmap = BitmapFactory.decodeByteArray(imageArray, 0, imageArray.size)
-        val uri = getImageUriFromBitmap(bitmap)
-        return uri
-    }
 
-    private fun getImageUriFromBitmap(bitmap: Bitmap): Uri {
-        val bytes = ByteArrayOutputStream()
-//        bitmap.compress(Bitmap.CompressFormat.JPEG, 100, bytes)
-        val uri = Uri.parse(
-            MediaStore.Images.Media.insertImage(
-                baseContext.contentResolver,
-                bitmap,
-                "Image",
-                "Image"
-            ))
-        return uri
-    }
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         return when(item.itemId){
             android.R.id.home ->{
