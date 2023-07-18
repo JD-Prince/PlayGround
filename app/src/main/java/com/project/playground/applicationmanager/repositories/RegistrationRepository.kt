@@ -85,6 +85,7 @@ class RegistrationRepository(private val userHandler : CurrentUserHandler, priva
     }
     suspend fun declineRequest(request : Notification.Request,eventTitle : String){
         registrationDao.removeRequest(requestId = request.id)
+        registrationDao.removeAllPendingRegistration(request.activityId)
         val currentUser = userHandler.getCurrentUser()!!
         registrationDao.addNotice(Notification.Notice(request.senderId,request.activityId,NoticeTypes.REQUEST_DECLINED,eventTitle,currentUser.playerId,currentUser.alias))
     }
